@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my portfolio</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link href="/your_path_to_version_6_compiled_files/css/fontawesome.css" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300&family=Water+Brush&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/portfolio.css">
+
+</head>
+<body>
+    <div id="app">
+        <div class="portfolio">
+            <div ref="overlay" class="overlay display-none"></div>
+            <div ref="sidebar" class="sidebar toggle-sidebar" :class="[theme?'sidebardark':'sidebarlight']">
+                <div class="sidebar-container">
+                    <div @click="toggle_sidebar" class="menue">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <div class="logo">
+                        <span class="before">
+                            <span class="after">
+                                <span><span class="first-letter">N</span>egm</span>
+                            </span>
+                        </span>
+                    </div>
+
+                    <div class="links">
+                        <ul>
+                            <li :class="[activelink == '1'?'active': '' , theme?'':'links_border_light']" data-index="1" @click="change_active"><i class="icon fa-solid fa-house-chimney"></i>home</li>
+                            <li :class="[activelink == '2'?'active': '' , theme?'':'links_border_light']" data-index="2" @click="change_active"><i class="icon fa-solid fa-user"></i>about</li>
+                            <!-- <li :class="[activelink == '3'?'active': '' , theme?'':'links_border_light']" data-index="3" @click="change_active"><i class="icon fa-solid fa-desktop"></i>services</li> -->
+                            <li :class="[activelink == '4'?'active': '' , theme?'':'links_border_light']" data-index="4" @click="change_active"><i class="icon fa-solid fa-briefcase"></i>projects</li>
+                            <!-- <li :class="[activelink == '5'?'active': '' , theme?'':'links_border_light']" data-index="5" @click="change_active"><i class="icon fa-solid fa-phone-volume"></i>contact</li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="content"  :class="[theme?'contentdark':'contentlight']">
+
+                <div class="social" :class="[theme? 'sidebardark':'sidebarlight']">
+                    <a href="https://www.facebook.com/profile.php?id=100026615413213" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
+                    <a href="https://wa.me/01276107348" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/in/mohamed-negm-2529a617b/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B4ls6s632Td697jM4102WNg%3D%3D" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/negm12" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="mailto:negmm7588@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+
+                <div class="style" :class="{togglestyle:toggle_style},[theme?'sidebardark':'sidebarlight']">
+                    <div class="icons">
+
+                        <div class="theme"  :class="[theme?'sidebardark':'sidebarlight']">
+                            <div @click="theme=!theme" v-if="!theme" class="night">
+                                <i class="fa-solid fa-moon"></i>
+                            </div>
+                            <div @click="theme=!theme" v-if="theme" class="light">
+                                <i class="fa-solid fa-sun"></i>
+                            </div>
+                        </div>
+                        <div @click="toggle_style=!toggle_style" class="geer"  :class="[theme?'sidebardark':'sidebarlight']">
+                            <i class="fa-solid fa-gear" :class="{'fa-spin':toggle_style}"></i>
+                        </div>
+
+                    </div>
+                    <div class="colors">
+                        <ul id="colors">
+                            <li @click="change_maincolor" data-color="#00bcd4"></li>
+                            <li @click="change_maincolor" data-color="#009688"></li>
+                            <li @click="change_maincolor" data-color="#e91e63"></li>
+                            <li @click="change_maincolor" data-color="#ff7b00"></li>
+                            <li @click="change_maincolor" data-color="#3f51b5"></li>
+                        </ul>
+
+                    </div>
+                </div>
+                <!-- start home section -->
+                <div class="home" :class="[activelink == '1'?'': 'router'],[theme?'contentdark':'contentlight']" data-roter="1"
+                    v-if="rout==1">
+                    <div class="intro">
+                        <h3 class="name"> hello, my name is <span>mohamed negm</span></h3>
+                        <h3 class="work">i'm a 
+                            <span ref="technology">
+                                {{typevalue}}
+                            </span>
+                            <span class="curoser"></span>
+                        </h3>
+                        <p class="lead">
+                            
+                            hi evryone : <br>
+                            my name : mohamed abd-Allatief <br>
+                            i'm a frontend developer by vue.js framework and backend
+                            developer by node.js and express framework 
+                            i graduated from FCI menofya university 
+                            and i able to work evry time , any where 
+                            if you see you need me <span class="btn"><a href="mailto:negmm7588@gmail.com" target="_blank">send to me</a> </span>
+                        </p>
+                        <div class="btn" data-index="2" @click="change_active">more about me</div>
+                    </div>
+                    <div class="image">
+                        <div class="before">
+                            <div class="after">
+                                <img src="images/negm2.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- start about section  -->
+                <div class="about" :class="[activelink == '2'?'': 'router'],[theme?'contentdark':'contentlight']" data-roter="2"
+                    v-if="rout==2">
+                    <h3 class="title"><p>about me</p>
+                        <span class="first"></span>
+                        <span class="second"></span>
+                    </h3>
+
+                    <p class="lead subtitle">
+                        i'm mohame nemg and <span>web developer</span>
+                    </p>
+                    <p class="lead"> this is some information about me let's look</p>
+
+                    <div class="information" >
+                        <div class="main-info" :class="[theme?'sidebardark':'sidebarlight']">
+                            <h3>main information</h3>
+                            <div class="dob">
+                                <p class="lead">birthday: </p>
+                                <p>19-9-1999</p>
+                            </div>
+                            <div class="age">
+                                <p class="lead">age: </p>
+                                <p>{{age}}</p>
+                            </div>
+                            <div class="website">
+                                <p class="lead">website: </p>
+                                <p>www.negm.com</p>
+                            </div>
+                            <div class="amail">
+                                <p class="lead">email: </p>
+                                <p><a href="mailto: negmm7588@gmail.com">negmm7588@gmail.com</a></p>
+                            </div>
+                            <div class="phone">
+                                <p class="lead">phone: </p>
+                                <p>01276107348</p>
+                            </div>
+                            <div class="degree">
+                                <p class="lead">degree: </p>
+                                <p>computer scince</p>
+                            </div>
+                            <div class="address">
+                                <p class="lead">address: </p>
+                                <p>sadat city-egypt </p>
+                            </div>
+                            <div class="cv">
+                                <div class="btn">download cv</div>
+                            </div>
+
+                        </div>
+                        <div class="skills" :class="[theme?'sidebardark':'sidebarlight']">
+                            <h3>my skills</h3>
+                            <div class="skill"  v-for="skill in skills">
+                                <div class="skill-name">
+                                    <span>{{skill.skill_name}}</span>
+                                    <span>{{skill.progress}}%</span>
+                                </div>
+                                <div class="progress" :class="[theme?'contentdark':'contentlight']">
+                                    <span :style="{'width':`${skill.progress}%`}"></span>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
+                    <div class="hestory">
+                        <div class="education" :class="[theme?'sidebardark':'sidebarlight']">
+                            <h3>education</h3>
+                            <div class="cont">
+                                <div class="degree" v-for="e in education">
+                                    <div class="date">
+                                        {{e.date}}
+                                    </div>
+                                    <div class="degree-title">
+                                        {{e.degree_title}}
+                                    </div>
+                                    <p class="degree-desc">
+                                        {{e.degree_descreption}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="experince" :class="[theme?'sidebardark':'sidebarlight']">
+                            <h3>experince</h3>
+                            <div class="cont">
+                                <div class="exp" v-for="x in experince">
+                                    <div class="date">
+                                        {{x.date}}
+                                    </div>
+                                    <div class="exp-title">
+                                        {{x.degree_title}}
+                                    </div>
+                                    <p class="exp-desc">
+                                        {{x.degree_descreption}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- start projects section  -->
+                <div class="projects" :class="[activelink == '4'?'': 'router'],[theme?'contentdark':'contentlight']" data-roter="4"
+                    v-if="rout==4">
+                    <h3 class="title"><p>my projects</p>
+                        <span class="first"></span>
+                        <span class="second"></span>
+                    </h3>
+
+                    <div class="projects-container">
+                        <div class="card project" :class="[theme?'sidebardark':'sidebarlight']"
+                            v-for="project in projects.projects">
+                            <a :href="project.project_link" target="_blank" :class="[theme?'sidebardark':'sidebarlight']">
+                                <img :src="project.img" alt="">
+                                <h3>{{project.title}}</h3>
+                            </a>
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="js/portfolio.js"></script>
+</body>
+</html>

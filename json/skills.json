@@ -1,0 +1,55 @@
+[
+    {
+        "skill_name":"html",
+        "progress": 90
+    },
+    {
+        "skill_name":"css",
+        "progress": 80
+    },
+    {
+        "skill_name":"bootstrap",
+        "progress": 80
+    },
+    {
+        "skill_name":"javascript",
+        "progress": 75
+    },
+    {
+        "skill_name":"es6",
+        "progress": 70
+    },
+    {
+        "skill_name":"json",
+        "progress": 70
+    },
+
+    {
+        "skill_name":"ajax",
+        "progress": 70
+    },
+    {
+        "skill_name":"vue js",
+        "progress": 75
+    },
+    {
+        "skill_name":"vuex4",
+        "progress": 75   
+    },
+    {
+        "skill_name":"vue animation",
+        "progress": 60   
+    },
+    {
+        "skill_name":"vue router",
+        "progress": 80  
+    },
+    {
+        "skill_name":"composition api",
+        "progress": 70  
+    },
+    {
+        "skill_name":"optional api",
+        "progress": 80  
+    }
+]
